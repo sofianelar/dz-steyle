@@ -1,8 +1,0 @@
-{
-  "name": "dz-steyle",
-  "compatibility_date": "2025-11-22",
-  "assets": {
-    "directory": "./dist",
-    "not_found_handling": "single-page-application"
-  }
-}
