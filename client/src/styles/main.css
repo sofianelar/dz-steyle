@@ -520,6 +520,17 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .admin-nav-links {
@@ -536,6 +547,7 @@ body {
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .admin-nav-item:hover, .admin-nav-item.active {
@@ -624,11 +636,13 @@ body {
   border: 1px solid var(--border-light);
   border-radius: 12px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .admin-table {
   width: 100%;
+  min-width: 640px;
   border-collapse: collapse;
   text-align: right;
   font-size: 14px;
@@ -845,23 +859,35 @@ body {
   .order-summary-box {
     position: static;
   }
+  /* Admin Navbar on Tablet */
   .admin-navbar {
     padding: 10px 14px;
-    flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
   }
   .admin-nav-links {
     order: 3;
     width: 100%;
     overflow-x: auto;
-    padding-bottom: 2px;
+    padding-bottom: 4px;
+    padding-top: 4px;
     gap: 4px;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-top: 1px solid #27272a;
+    margin-top: 4px;
+  }
+  .admin-nav-links::-webkit-scrollbar {
+    display: none;
   }
   .admin-nav-item {
-    padding: 6px 12px;
+    padding: 7px 14px;
     font-size: 13px;
-    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  /* Admin Stats on Tablet */
+  .admin-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 }
 
@@ -951,15 +977,26 @@ body {
     margin-bottom: 20px;
   }
   /* Admin & Dashboard on Mobile */
+  .admin-navbar {
+    padding: 8px 12px;
+  }
   .admin-stats-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
   .admin-stat-card {
-    padding: 12px 14px;
+    padding: 10px 12px;
   }
   .admin-stat-value {
-    font-size: 22px;
+    font-size: 20px;
+  }
+  /* Admin table scrollable on mobile */
+  .admin-table-container {
+    border-radius: 10px;
+  }
+  /* Admin app container on mobile */
+  .admin-content {
+    padding: 12px;
   }
   /* Footer on Mobile */
   .footer-features {
